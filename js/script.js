@@ -8,7 +8,7 @@ createApp({
 
             // mi salvo una variabile dove memorizzo quale sia la slide attiva
             activeSlideIndex: 0,
-            
+
 
 
             slides: [
@@ -35,18 +35,20 @@ createApp({
                 }
             ],
 
-          
+
             timer: null
         }
-        
-        
-    },
-    mounted() {
-        this.timer = setInterval(() => {
-          this.nextSlide();
-        }, 3000)
+
 
     },
+
+    // bonus
+    mounted() {
+        this.startTimer();
+
+    },
+    // fine bonus
+
     methods: {
         nextSlide() {
             this.activeSlideIndex++;
@@ -54,9 +56,9 @@ createApp({
             if (this.activeSlideIndex >= this.slides.length) {
                 this.activeSlideIndex = 0;
             }
-            
+
         },
-        
+
         prevSlide() {
             this.activeSlideIndex--;
             // Controllo che l'indice non vada oltre lo zero 
@@ -65,19 +67,36 @@ createApp({
             }
         },
 
+         // bonus
+
         // metodo per attvare il click sulle mmagini thumbnail
         changeSlide(index) {
             console.log(index)
             this.activeSlideIndex = index
         },
 
+        //funzione per ciclare le immagini ogni 3 sec
+        startTimer() {
+            this.timer = setInterval(() => {
+                this.nextSlide();
+            }, 3000);
+        },
+
+        // funzione per terminare il ciclo di immagini
+        stopTimer() {
+            clearInterval(this.timer);
+        },
     
-
-        
-
+        // fine bonus
 
 
-        
-        
+
+
+
+
+
+
+
+
     }
 }).mount('#app');
