@@ -36,12 +36,17 @@ createApp({
             ],
 
           
-           
+            timer: null
         }
         
         
     },
-   
+    mounted() {
+        this.timer = setInterval(() => {
+          this.nextSlide();
+        }, 3000)
+
+    },
     methods: {
         nextSlide() {
             this.activeSlideIndex++;
@@ -49,6 +54,7 @@ createApp({
             if (this.activeSlideIndex >= this.slides.length) {
                 this.activeSlideIndex = 0;
             }
+            
         },
         
         prevSlide() {
@@ -64,6 +70,8 @@ createApp({
             console.log(index)
             this.activeSlideIndex = index
         },
+
+    
 
         
 
