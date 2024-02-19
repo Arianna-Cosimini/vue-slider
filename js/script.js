@@ -8,7 +8,7 @@ createApp({
 
             // mi salvo una variabile dove memorizzo quale sia la slide attiva
             activeSlideIndex: 0,
-
+            
 
 
             slides: [
@@ -35,8 +35,13 @@ createApp({
                 }
             ],
 
+          
+           
         }
+        
+        
     },
+   
     methods: {
         nextSlide() {
             this.activeSlideIndex++;
@@ -53,6 +58,18 @@ createApp({
                 this.activeSlideIndex = this.slides.length - 1;
             }
         },
+
+        // metodo per attvare il click sulle mmagini thumbnail
+        changeSlide(index) {
+            console.log(index)
+            this.activeSlideIndex = index
+        },
+
+        
+
+
+
+        
         
     }
 }).mount('#app');

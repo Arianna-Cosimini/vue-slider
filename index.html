@@ -44,14 +44,9 @@
                 </div> -->
 
                 <div class="thumbs">
-                    <div class="prev">
-                        <i @click="prevSlide()" class="fa-solid fa-arrow-left"></i>
-                    </div>
-                    <div class="next">
-                        <i @click="nextSlide()" class="fa-solid fa-arrow-right"></i>
-
-                    </div>
-                    <div class="thumb" v-for="(currentImage, index) in slides">
+                    <div class="prev" @click ="prevSlide()"></div>
+                    <div class="next" @click ="nextSlide()"></div>
+                    <div class="thumb" v-for="(currentImage, index) in slides" @click="changeSlide(index)">
                         <img :src="currentImage.image" :alt="currentImage.title" />
                     </div>
                     <!-- <div class="thumb">
